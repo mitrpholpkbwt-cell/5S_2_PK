@@ -255,10 +255,10 @@
   </div>
 
   <!-- ===================== ส่วนที่ 2 : พื้นที่ภายนอกห้องชั่ง ===================== -->
-  <div class="part-header">ส่วนที่ 2 — พื้นที่ภายนอกห้องชั่ง <span class="part-max">คะแนนเต็ม 10 คะแนน</span></div>
+  <div class="part-header">ส่วนที่ 2 — พื้นที่ภายนอกห้องชั่ง <span class="part-max">คะแนนเต็ม 15 คะแนน</span></div>
 
   <div class="card" data-section="D">
-    <div class="section-title">รายการตรวจเช็กพื้นที่ภายนอก <span class="max">คะแนนเต็ม 10</span></div>
+    <div class="section-title">รายการตรวจเช็กพื้นที่ภายนอก <span class="max">คะแนนเต็ม 15</span></div>
 
     <div class="item" data-item="12">
       <div class="item-top"><span class="item-num">1</span><span class="item-title">บริเวณรอบเครื่องชั่งสะอาด ไม่มีเศษเชื้อเพลิง เศษดินโคลน หรือสิ่งสกปรกตกค้าง</span></div>
@@ -268,14 +268,18 @@
       <div class="item-top"><span class="item-num">2</span><span class="item-title">พื้นที่ถนนและแนวขอบถนนรอบเครื่องชั่ง 2 สะอาด ไม่มีขยะ เศษใบไม้ กิ่งไม้ หรือวัชพืชรก</span></div>
       <div class="scale"></div>
     </div>
-    <div class="subtotal">คะแนนรวมพื้นที่ภายนอก: <span data-subtotal="D">0</span> / 10</div>
+    <div class="item" data-item="14">
+      <div class="item-top"><span class="item-num">3</span><span class="item-title">บริเวณรอบห้องชั่ง 2 สะอาด ไม่มีเศษขยะ เศษดินโคลน หรือสิ่งสกปรกตกค้าง</span></div>
+      <div class="scale"></div>
+    </div>
+    <div class="subtotal">คะแนนรวมพื้นที่ภายนอก: <span data-subtotal="D">0</span> / 15</div>
   </div>
 
   <div class="summary">
     <h2>สรุปผลการตรวจ</h2>
     <div class="score-line"><span>ส่วนที่ 1 — ภายในห้องชั่ง (เต็ม 55)</span><span data-subtotal="PART1B">0</span></div>
-    <div class="score-line"><span>ส่วนที่ 2 — ภายนอกห้องชั่ง (เต็ม 10)</span><span data-subtotal="PART2B">0</span></div>
-    <div class="score-line total"><span>คะแนนรวมทั้งหมด (เต็ม 65)</span><span data-total>0</span></div>
+    <div class="score-line"><span>ส่วนที่ 2 — ภายนอกห้องชั่ง (เต็ม 15)</span><span data-subtotal="PART2B">0</span></div>
+    <div class="score-line total"><span>คะแนนรวมทั้งหมด (เต็ม 70)</span><span data-total>0</span></div>
     <div class="grade-box grade-pending" data-grade>กรุณาให้คะแนนครบทุกข้อ</div>
   </div>
 
@@ -288,7 +292,7 @@
 
   <div class="note">
     หมายเหตุ: กรณีประเมินได้ 3 คะแนน หรือต่ำกว่า ผู้ตรวจประเมินต้องระบุรายละเอียดข้อบกพร่อง สาเหตุ และแนวทางการปรับปรุง และสามารถถ่ายรูปหรือแนบรูปประกอบได้<br>
-    เกณฑ์ (จากคะแนนเต็ม 65): 59–65 = ดีเยี่ยม (ผ่านมาตรฐาน) &nbsp;|&nbsp; 52–58 = ดี (ผ่านมาตรฐาน) &nbsp;|&nbsp; 46–51 = พอใช้ (ควรปรับปรุง) &nbsp;|&nbsp; ต่ำกว่า 46 = ไม่ผ่านมาตรฐาน (ควรปรับปรุงเร่งด่วน)
+    เกณฑ์ (จากคะแนนเต็ม 70): 63–70 = ดีเยี่ยม (ผ่านมาตรฐาน) &nbsp;|&nbsp; 56–62 = ดี (ผ่านมาตรฐาน) &nbsp;|&nbsp; 49–55 = พอใช้ (ควรปรับปรุง) &nbsp;|&nbsp; ต่ำกว่า 49 = ไม่ผ่านมาตรฐาน (ควรปรับปรุงเร่งด่วน)
   </div>
 
   <button id="submitBtn" style="
@@ -427,8 +431,8 @@ function toggleDetailPanels(){
   });
 }
 
-const SECTIONS = {A:[1,2,3], B:[4,5,6,7,8,9], C:[10,11], D:[12,13]};
-const TOTAL_ITEMS = 13;
+const SECTIONS = {A:[1,2,3], B:[4,5,6,7,8,9], C:[10,11], D:[12,13,14]};
+const TOTAL_ITEMS = 14;
 
 function recalc(){
   let grandTotal = 0;
@@ -468,9 +472,9 @@ function recalc(){
     gradeBox.textContent = `กรุณาให้คะแนนอีก ${TOTAL_ITEMS - answeredCount} ข้อ`;
     return;
   }
-  if(grandTotal >= 59){ gradeBox.className='grade-box grade-1'; gradeBox.textContent='ดีเยี่ยม (ผ่านมาตรฐาน)'; }
-  else if(grandTotal >= 52){ gradeBox.className='grade-box grade-2'; gradeBox.textContent='ดี (ผ่านมาตรฐาน)'; }
-  else if(grandTotal >= 46){ gradeBox.className='grade-box grade-3'; gradeBox.textContent='พอใช้ (ควรปรับปรุง)'; }
+  if(grandTotal >= 63){ gradeBox.className='grade-box grade-1'; gradeBox.textContent='ดีเยี่ยม (ผ่านมาตรฐาน)'; }
+  else if(grandTotal >= 56){ gradeBox.className='grade-box grade-2'; gradeBox.textContent='ดี (ผ่านมาตรฐาน)'; }
+  else if(grandTotal >= 49){ gradeBox.className='grade-box grade-3'; gradeBox.textContent='พอใช้ (ควรปรับปรุง)'; }
   else{ gradeBox.className='grade-box grade-4'; gradeBox.textContent='ไม่ผ่านมาตรฐาน (ควรปรับปรุงเร่งด่วน)'; }
 }
 
@@ -484,80 +488,79 @@ const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwB7oZkGloVbkof
 
 document.getElementById('submitBtn').addEventListener('click', async ()=>{
   const statusMsg = document.getElementById('statusMsg');
-  const items = {};
-  let answeredCount = 0;
-
-  for(const ids of Object.values(SECTIONS)){
-    ids.forEach(id=>{
-      const checked = document.querySelector(`input[name="q${id}"]:checked`);
-      items[id] = checked ? Number(checked.value) : "";
-      if(checked) answeredCount++;
-    });
-  }
-
-  if(answeredCount < TOTAL_ITEMS){
-    statusMsg.style.color = 'var(--bad)';
-    statusMsg.textContent = `กรุณาให้คะแนนให้ครบทั้ง ${TOTAL_ITEMS} ข้อก่อนส่งฟอร์ม`;
-    return;
-  }
-
-  // รวบรวมรายละเอียดข้อบกพร่องเฉพาะข้อที่คะแนน ≤ 3 และตรวจว่ากรอกครบหรือยัง
-  const detailLines = [];
-  let missingDetail = null;
-
-  for(const [id, score] of Object.entries(items)){
-    if(score !== "" && score <= 3){
-      const defect = document.querySelector(`textarea[data-field="defect"][data-item="${id}"]`).value.trim();
-
-      if(!defect){
-        missingDetail = id;
-        break;
-      }
-      detailLines.push(`ข้อ ${id} (คะแนน ${score}) — รายละเอียดข้อบกพร่อง: ${defect}`);
-    }
-  }
-
-  if(missingDetail){
-    statusMsg.style.color = 'var(--bad)';
-    statusMsg.textContent = `กรุณากรอกรายละเอียดข้อบกพร่องของข้อ ${missingDetail} (คะแนน ≤ 3 ต้องระบุ)`;
-    return;
-  }
-
-  // รวบรวมรูปที่แนบไว้ เฉพาะข้อที่คะแนน ≤ 3 (photoData ส่งเป็น base64 dataURL แยกตามข้อ)
-  const photoData = {};
-  for(const [id, score] of Object.entries(items)){
-    if(score !== "" && score <= 3 && itemPhotos[id]){
-      photoData[id] = itemPhotos[id];
-    }
-  }
-
-  const part1Total = SECTIONS.A.concat(SECTIONS.B, SECTIONS.C).reduce((s,id)=>s+Number(items[id]||0),0);
-  const part2Total = SECTIONS.D.reduce((s,id)=>s+Number(items[id]||0),0);
-
-  const payload = {
-    formType: "room2_2part",
-    area: document.getElementById('area').value,
-    date: document.getElementById('date').value,
-    responsible: document.getElementById('responsible').value,
-    inspector: document.getElementById('inspector').value,
-    items: items,
-    subtotalA: Number(document.querySelector('[data-subtotal="A"]').textContent),
-    subtotalB: Number(document.querySelector('[data-subtotal="B"]').textContent),
-    subtotalC: Number(document.querySelector('[data-subtotal="C"]').textContent),
-    subtotalD: Number(document.querySelector('[data-subtotal="D"]').textContent),
-    part1Total: part1Total,
-    part2Total: part2Total,
-    total: Number(document.querySelector('[data-total]').textContent),
-    grade: document.querySelector('[data-grade]').textContent,
-    suggestion: document.getElementById('suggestion').value,
-    itemDetails: detailLines.join('\n'),
-    itemPhotos: photoData
-  };
-
-  statusMsg.style.color = 'var(--sub)';
-  statusMsg.textContent = 'กำลังส่งข้อมูล...';
-
   try {
+    const items = {};
+    let answeredCount = 0;
+
+    for(const ids of Object.values(SECTIONS)){
+      ids.forEach(id=>{
+        const checked = document.querySelector(`input[name="q${id}"]:checked`);
+        items[id] = checked ? Number(checked.value) : "";
+        if(checked) answeredCount++;
+      });
+    }
+
+    if(answeredCount < TOTAL_ITEMS){
+      statusMsg.style.color = 'var(--bad)';
+      statusMsg.textContent = `กรุณาให้คะแนนให้ครบทั้ง ${TOTAL_ITEMS} ข้อก่อนส่งฟอร์ม`;
+      return;
+    }
+
+    // รวบรวมรายละเอียดข้อบกพร่องเฉพาะข้อที่คะแนน ≤ 3 และตรวจว่ากรอกครบหรือยัง
+    const detailLines = [];
+    let missingDetail = null;
+
+    for(const [id, score] of Object.entries(items)){
+      if(score !== "" && score <= 3){
+        const defectEl = document.querySelector(`textarea[data-field="defect"][data-item="${id}"]`);
+        const defect = defectEl ? defectEl.value.trim() : "";
+        if(!defect){
+          missingDetail = id;
+          break;
+        }
+        detailLines.push(`ข้อ ${id} (คะแนน ${score}) — รายละเอียดข้อบกพร่อง: ${defect}`);
+      }
+    }
+
+    if(missingDetail){
+      statusMsg.style.color = 'var(--bad)';
+      statusMsg.textContent = `กรุณากรอกรายละเอียดข้อบกพร่องของข้อ ${missingDetail} (คะแนน ≤ 3 ต้องระบุ)`;
+      return;
+    }
+
+    // รวบรวมรูปที่แนบไว้ เฉพาะข้อที่คะแนน ≤ 3 (photoData ส่งเป็น base64 dataURL แยกตามข้อ)
+    const photoData = {};
+    for(const [id, score] of Object.entries(items)){
+      if(score !== "" && score <= 3 && itemPhotos[id]){
+        photoData[id] = itemPhotos[id];
+      }
+    }
+
+    const part1Total = SECTIONS.A.concat(SECTIONS.B, SECTIONS.C).reduce((s,id)=>s+Number(items[id]||0),0);
+    const part2Total = SECTIONS.D.reduce((s,id)=>s+Number(items[id]||0),0);
+
+    const payload = {
+      formType: "room2_2part",
+      area: document.getElementById('area').value,
+      date: document.getElementById('date').value,
+      inspector: document.getElementById('inspector').value,
+      items: items,
+      subtotalA: Number(document.querySelector('[data-subtotal="A"]').textContent),
+      subtotalB: Number(document.querySelector('[data-subtotal="B"]').textContent),
+      subtotalC: Number(document.querySelector('[data-subtotal="C"]').textContent),
+      subtotalD: Number(document.querySelector('[data-subtotal="D"]').textContent),
+      part1Total: part1Total,
+      part2Total: part2Total,
+      total: Number(document.querySelector('[data-total]').textContent),
+      grade: document.querySelector('[data-grade]').textContent,
+      suggestion: document.getElementById('suggestion').value,
+      itemDetails: detailLines.join('\n'),
+      itemPhotos: photoData
+    };
+
+    statusMsg.style.color = 'var(--sub)';
+    statusMsg.textContent = 'กำลังส่งข้อมูล...';
+
     // ใช้ no-cors + text/plain เพื่อเลี่ยงปัญหา CORS แบบเดียวกับฟอร์มฝากขยะ
     await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
@@ -571,6 +574,7 @@ document.getElementById('submitBtn').addEventListener('click', async ()=>{
   } catch (err) {
     statusMsg.style.color = 'var(--bad)';
     statusMsg.textContent = 'เกิดข้อผิดพลาด: ' + err.message;
+    console.error(err);
   }
 });
 
